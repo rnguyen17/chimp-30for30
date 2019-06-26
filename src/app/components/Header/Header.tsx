@@ -6,8 +6,7 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   padding: 10px 20px;
   height: 50px;
-  // background-image: linear-gradient(to right, #845ec2, #906dc6, #9c7dc9, #a88ccd, #b39cd0);
-  background-image: linear-gradient(to right, #6b15ab, #712db1, #773fb7, #7d4fbd, #845ec2);
+  background-image: linear-gradient(to right, #3b1e79, #461e86, #511d93, #5e1a9f, #6b15ab);
 `;
 
 export const Header: React.FC = ({ children }) => <HeaderWrapper>{children}</HeaderWrapper>;

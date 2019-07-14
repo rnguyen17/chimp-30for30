@@ -50,7 +50,7 @@ export const Logo: React.FC<LogoProps> = ({ color = '#fff', size = 20 }) => (
         </g>
       </g>
     </svg>
-    <Title to="/home" size={size} color={color}>
+    <Title to="/" size={size} color={color}>
       Single-SPA TFT
     </Title>
   </LogoWrapper>

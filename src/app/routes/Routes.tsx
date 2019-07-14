@@ -1,28 +1,32 @@
 import * as React from 'react';
 import { Route } from 'react-router-dom';
-import { Home, About, Contact } from '../views';
+import { withFadeInOut } from 'app/utils/animations/withFadeInOut';
+import { Home, Introduction, Drumkit } from 'app/views';
 
-const routes = [
+interface RouteViewProps {
+  path: string;
+  component: React.ComponentType<any>;
+}
+
+const routeViews: RouteViewProps[] = [
   {
-    path: '/Home',
+    path: '/',
     component: Home,
   },
   {
-    path: '/About',
-    component: About,
+    path: '/demos/introduction',
+    component: Introduction,
   },
   {
-    path: '/Contact',
-    component: Contact,
+    path: '/demos/drumkit',
+    component: Drumkit,
   },
 ];
 
-export const Routes = () => {
-  return (
-    <React.Fragment>
-      {routes.map(route => {
-        return <Route key={route.path} path={route.path} exact component={route.component} />;
-      })}
-    </React.Fragment>
-  );
-};
+const renderRoutes = (routes: RouteViewProps[]) =>
+  routes.map((route: RouteViewProps) => {
+    const { path, component } = route;
+    return <Route key={path} path={path} exact component={withFadeInOut(component)} />;
+  });
+
+export const Routes = () => <React.Fragment>{renderRoutes(routeViews)}</React.Fragment>;
